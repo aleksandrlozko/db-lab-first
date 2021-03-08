@@ -135,7 +135,7 @@ CREATE = (
              )
 ''',
 '''
-CREATE TABLE IF NOT EXISTS table_result (
+CREATE TABLE IF NOT EXISTS table_temp (
         zno_year INTEGER PRIMARY KEY,
         record_id INTEGER,
         is_done BOOLEAN
