@@ -141,7 +141,7 @@ QUERY = (
         ) VALUES %s
     ''',
     '''
-        UPDATE tbl_zno_temp SET record_id = %s, is_done = %s WHERE zno_year = %s
+        UPDATE table_temp SET record_id = %s, is_done = %s WHERE zno_year = %s
     '''
 )
 NUMERIC_COLS = [1, 18, 19, 20, 21, 29, 30, 31, 39, 40, 41, 49, 50, 51, 59, 60, 61, 69, 70, 71, 79, 80, 81, 88, 89, 91, 98, 99, 101, 108, 109, 111, 118, 119, 121]
@@ -163,11 +163,11 @@ def populate_table(conn):
                 idx = 0
                 batch = list()
 
-                cur.execute('SELECT record_id, is_done FROM tbl_zno_temp WHERE zno_year = %s', year)
+                cur.execute('SELECT record_id, is_done FROM table_temp WHERE zno_year = %s', year)
                 res = cur.fetchone()
 
                 if res is None:
-                    cur.execute('INSERT INTO tbl_zno_temp (zno_year, record_id, is_done) VALUES (%s, %s, %s)', year + [idx, False])
+                    cur.execute('INSERT INTO table_temp (zno_year, record_id, is_done) VALUES (%s, %s, %s)', year + [idx, False])
                 else:
                     if res[-1]:
                         print(f'Файл {file_name} был обработан. Going to next...')
@@ -204,7 +204,7 @@ def populate_table(conn):
                 print(f'Файл {file_name} готов. Время выполнения - {exec_time} секунд.')
                 executions_time[file_name] = exec_time
 
-    print('Файлы были повторены.')
+    print('Файлы были обработаны.')
     cur.close()
 
     if executions_time:
