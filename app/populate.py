@@ -10,7 +10,7 @@ from app.config import config
 BATCH_SIZE = 50
 QUERY = (
     '''
-        INSERT INTO tbl_zno_res (
+        INSERT INTO table_result (
             zno_year,
             OUTID,
             Birth,
