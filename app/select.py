@@ -10,7 +10,7 @@ QUERY = '''
         max(physBall100), 
         max(physBall12), 
         max(physBall) 
-    FROM tbl_zno_res 
+    FROM table_result 
     WHERE physTestStatus = 'Зараховано' 
     GROUP BY zno_year
 '''
