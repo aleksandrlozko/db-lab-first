@@ -149,7 +149,7 @@ def create_table(conn):
         cur.execute(query)
     cur.close()
     conn.commit()
-    print('===Table created===')
+    print('=====================Table created=====================')
 
 
 if __name__ == '__main__':
